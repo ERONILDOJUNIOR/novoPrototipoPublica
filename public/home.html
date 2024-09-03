@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Bundle com Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: row;
+      margin: 0;
+    }
+
+    .header-padrao {
+      background-color: #233242;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      background-color: #233242;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      z-index: 100;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      color: white;
+      margin-top: auto;
+    }
+
+    .user-info img {
+      margin-right: 10px;
+    }
+
+    .content {
+      margin-left: 280px;
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    .card {
+      background-color: #f2f2f2;
+      border: 1px solid #233242;
+      border-radius: 8px;
+    }
+
+    .titulo-home {
+      font-size: 50px;
+    }
+
+    header {
+      z-index: 101;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 20px;
+      }
+      .content {
+        margin-left: 0;
+      }
+      header {
+        margin-left: 0;
+      }
+    }
+
+    .nav-link.ativo {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: #2a3b4d;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <a href="/" style="margin-left: auto;" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <img class="mb-4" src="./images/modelo 1.png" alt="" width="200px" height="160px"> 
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a href="#" class="nav-link text-white ativo" aria-current="page">
+                <i class="bi bi-house-door"></i>
+                Home
+            </a>
+        </li>
+
+        <!-- Agendamentos com sub-itens -->
+        <li class="nav-item">
+            <a href="#agendamentosSubmenu" class="nav-link text-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#agendamentosSubmenu">
+                <div>
+                    <i class="bi bi-calendar-check"></i>
+                    Agendamentos
+                </div>
+                <i class="bi bi-chevron-down"></i>
+            </a>
+            <div class="collapse" id="agendamentosSubmenu">
+                <ul class="nav flex-column ms-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-person-check"></i>
+                            Consultas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./Exames.html" class="nav-link text-white">
+                            <i class="bi bi-clipboard-data"></i>
+                            Exames
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <!-- Gerenciamento com sub-itens -->
+        <li class="nav-item">
+            <a href="#gerenciamentoSubmenu" class="nav-link text-white d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#gerenciamentoSubmenu">
+                <div>
+                    <i class="bi bi-gear"></i>
+                    Gerenciamento
+                </div>
+                <i class="bi bi-chevron-down"></i>
+            </a>
+            <div class="collapse" id="gerenciamentoSubmenu">
+                <ul class="nav flex-column ms-3">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-people"></i>
+                            Pacientes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-person-badge"></i>
+                            Médicos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-building"></i>
+                            Hospitais e Clínicas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-shield"></i>
+                            Agentes de Saúde
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-bookmark-heart"></i>
+                            Especialidades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">
+                            <i class="bi bi-geo-alt"></i>
+                            Localidades
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a href="#" class="nav-link text-white">
+                <i class="bi bi-list"></i>
+                Lista de Espera
+            </a>
+        </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="./images/agent2.jpg" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>Renata</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Gerenciar funcionários</a></li>
+            <li><a class="dropdown-item" href="./login.html">Sair</a></li>
+        </ul>
+    </div>
+</nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- Header -->
+    <header class="p-3 text-white header-padrao">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+
+          <h1 class="h3 mb-3 fw-normal titulo-home">Sistema de marcação de Consultas e Exames</h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container-fluid">
+      <div class="row">
+        <!-- 6 Cards in 2 rows and 3 columns -->
+        <div class="col-md-3 m-4">
+          <div class="card p-3">
+            <h5>Card 1</h5>
+            <p>Conteúdo do Card 1</p>
+          </div>
+        </div>
+        <div class="col-md-3 m-4">
+          <div class="card p-3">
+            <h5>Card 2</h5>
+            <p>Conteúdo do Card 2</p>
+          </div>
+        </div>
+        <div class="col-md-3 m-4">
+          <div class="card p-3">
+            <h5>Card 3</h5>
+            <p>Conteúdo do Card 3</p>
+          </div>
+        </div>
+
+        <div class="col-md-3 m-4">
+          <div class="card p-3">
+            <h5>Card 4</h5>
+            <p>Conteúdo do Card 4</p>
+          </div>
+        </div>
+        <div class="col-md-3 m-4">
+          <div class="card p-3">
+            <h5>Card 5</h5>
+            <p>Conteúdo do Card 5</p>
+          </div>
+        </div>
+        <div class="col-md-3 m-4">
+          <div class="card p-3">
+            <h5>Card 6</h5>
+            <p>Conteúdo do Card 6</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Move script to the end of body -->
+  <script>
+    document.querySelectorAll('.nav-link[data-bs-toggle="collapse"]').forEach(function(toggle) {
+      toggle.addEventListener('click', function() {
+        const icon = this.querySelector('.bi-chevron-down');
+        icon.classList.toggle('bi-chevron-up');
+      });
+    });
+  </script>
+
+</body>
+</html>
